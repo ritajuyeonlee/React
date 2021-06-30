@@ -6,23 +6,28 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const task = input;
-  const todoObj = {
-    id: 0,
-    task: "",
-    check: true,
-  };
+  
   const getItem = window.localStorage.getItem("todos");
+  const getId = window.localStorage.getItem("Id");
 
-  const [todos, setTodos] = useState(() =>
-    getItem != null ? JSON.parse(getItem) : "{}"
+  const [todos, setTodos] = useState(
+    () =>
+    getItem != null ? JSON.parse(getItem) : []
   );
-  const nextId = getItem != null ? todos[-1].id + 1 : 0;
 
+  const [nextId, setNextId] = useState(
+    () =>
+    getId != null ? JSON.parse(getId) : 0
+  );
   const [filter, setFilter] = useState(null);
 
   useEffect(() => {
     window.localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+
+  useEffect(() => {
+    window.localStorage.setItem("Id",JSON.stringify(nextId));
+  }, [nextId]);
 
   const onChange = e => {
     setInput(e.target.value);
@@ -31,15 +36,13 @@ function App() {
   const onCreate = () => {
     if (task !== "") {
       const todo = {
-        id: nextId.current,
+        id: nextId,
         task,
         check: true,
       };
       setTodos(todos.concat(todo));
       setInput("");
-
-      nextId.current += 1;
-      console.log(nextId);
+      setNextId(nextId + 1)
     }
   };
 
@@ -61,10 +64,11 @@ function App() {
 
   return (
     <div>
-      <div className="input">
+      <div className="inputbox">
         <CreateTodo task={task} onChange={onChange} onCreate={onCreate} />
       </div>
       <div className="listbox">
+        <h1>TO DO LIST</h1>
         <TodoList
           todos={
             filter == null ? todos : todos.filter(todo => todo.check === filter)
