@@ -16,7 +16,7 @@ function App() {
   const [todos, setTodos] = useState(() =>
     getItem != null ? JSON.parse(getItem) : "{}"
   );
-  const nextId = getItem != null ? todos[-1].id + 1 : 0;
+  const nextId = todos.length === 0 ? todos[-1].id + 1 : 0;
 
   const [filter, setFilter] = useState(null);
 
