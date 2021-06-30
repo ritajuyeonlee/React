@@ -1,27 +1,38 @@
 import React from "react";
 
-function Todo({ todo, onCheck, onRemove }) {
+function Todo({ todo, onToggle, onRemove }) {
   const { id, task, check } = todo;
+
   return (
     <div>
-      <input type="checkbox" onClick={() => onCheck(id)} value={check}></input>
+      ·
       <span
+        onClick={() => onToggle(id)}
         style={{
           textDecoration: check ? "none" : "line-through",
         }}
       >
         {task}
       </span>
-      <button onClick={() => onRemove(id)}>X</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <button className="remove" onClick={() => onRemove(id)}>
+        X
+      </button>
     </div>
   );
 }
 
-function TodoList({ todos, onCheck, onRemove }) {
+function TodoList({ todos, onToggle, onRemove }) {
+  console.log(todos);
   return (
     <div>
       {todos.map(todo => (
-        <Todo todo={todo} key={todo.id} onCheck={onCheck} onRemove={onRemove} />
+        <Todo
+          todo={todo}
+          key={todo.id}
+          onToggle={onToggle}
+          onRemove={onRemove}
+        />
       ))}
     </div>
   );
