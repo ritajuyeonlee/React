@@ -5,7 +5,8 @@ function Todo({ todo, onToggle, onRemove }) {
 
   return (
     <div>
-      ·
+      o
+      &nbsp;&nbsp;&nbsp;
       <span
         onClick={() => onToggle(id)}
         style={{

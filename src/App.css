@@ -35,24 +35,22 @@ body {
   margin-left: 30px;
   font-weight: 500;
 }
-.input {
+.inputbox {
   width: 300px;
   padding: 40px;
   position: absolute;
   top: 280px;
   left: 550px;
-  background: #eaebe9;
+  background: #ebebe9;
   border: 2px solid #fcb9a3;
   border-radius: 2px;
   text-align: center;
-  transition: 0.25s;
   border-radius: 15px;
   margin-top: 30px;
+
 }
 
-.inputbox {
-  border: 0;
-  background: white;
+.input {
   display: block;
   margin: 20px auto;
   text-align: center;
@@ -63,10 +61,11 @@ body {
   color: black;
   border-radius: 24px;
   transition: 0.25s;
+
 }
 
-.inputbox:focus {
-  width: 300px;
+.input:focus {
+  width: 280px;
   border-color: #f8cc4f;
 }
 
@@ -111,32 +110,10 @@ body {
   width: 300px;
   margin: 30px auto;
   text-align: center;
-  /* border: 2px solid #1d4771; */
   padding: 20px 10px;
   outline: none;
   color: black;
   border-radius: 24px;
   transition: 0.25s;
 }
-.card {
-  border: 0;
-}
-.box input[type="button"] {
-  border: 0;
-  background: white;
-  display: inline-block;
-  text-align: center;
-  border: 2px solid #fcb9a3;
-  padding: 10px 10px;
-  outline: none;
-  color: black;
-  border-radius: 24px;
-  transition: 0.25s;
-  cursor: pointer;
-}
-.box input[type="button"]:hover {
-  background: #fcb9a3;
-}
-.forgot {
-  text-decoration: underline;
-}
+

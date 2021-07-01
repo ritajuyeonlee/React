@@ -4,7 +4,7 @@ function CreateTodo({ task, onChange, onCreate }) {
   return (
     <div>
       <input
-        className="inputbox"
+        className="input"
         name="task"
         placeholder="what to do?"
         value={task}
